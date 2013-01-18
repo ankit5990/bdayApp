@@ -10,7 +10,10 @@
 	<bean name="/loginfail.do" class="com.mcafee.bapp.action.LoginFailForward">
 	</bean>
 	
-	<!-- <bean name="/home.do" class="">
-	</bean> -->
+	<bean name="/home.do" class="com.mcafee.bapp.action.homeActions.HomeDispatchView">
+	</bean>
+	
+	<bean name="/logout.do" class="com.mcafee.bapp.action.LogoutAction">
+	</bean>
 	
 </beans>

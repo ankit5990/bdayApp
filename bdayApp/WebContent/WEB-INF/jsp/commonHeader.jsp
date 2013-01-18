@@ -21,7 +21,7 @@
 					<span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu">
-                  <li><a href="#">Logout</a></li>                  
+                  <li><a href="logout.do">Logout</a></li>                  
                 </ul>
 			</div>
 		</div>

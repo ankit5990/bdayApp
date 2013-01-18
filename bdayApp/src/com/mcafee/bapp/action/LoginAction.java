@@ -8,17 +8,22 @@ import org.springframework.web.servlet.mvc.Controller;
 
 import com.mcafee.bapp.action.common.ActionConstants;
 import com.mcafee.bapp.action.common.ActionUtilities;
-import com.mcafee.bapp.common.CommonViewConstants;
 
 public class LoginAction implements Controller{
 
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		if(ActionUtilities.noLoginExists(request)){
+			return new ModelAndView(ActionConstants.REDIRECT+ActionConstants.INDEX_JSP);
+		}
+		if(ActionUtilities.isValidLoginPresent(request)){
+			return new ModelAndView(ActionConstants.REDIRECT+ActionConstants.HOME);
+		}
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		if(ActionUtilities.isValidLogin(username, password)){
-			ActionUtilities.addUserToSession(request, username);						
+			ActionUtilities.addUserToNewSession(request, username);						
 			return new ModelAndView(ActionConstants.REDIRECT+ActionConstants.HOME);
 		}
 		else{

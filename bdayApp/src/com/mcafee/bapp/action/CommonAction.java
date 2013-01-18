@@ -14,7 +14,7 @@ public abstract class CommonAction implements Controller{
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {		
-		if(ActionUtilities.isValidSession(request)){
+		if(ActionUtilities.isValidLoginPresent(request)){
 			ModelAndView result = executeHandleRequest(request,response);
 			return result;
 		}

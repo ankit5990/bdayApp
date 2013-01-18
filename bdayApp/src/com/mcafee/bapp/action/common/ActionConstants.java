@@ -6,9 +6,10 @@ public class ActionConstants {
 	
 	public static final String LOGIN_FAIL_TRUE = "true";
 	
-	public static final String INDEX_JSP = "";
+	public static final String INDEX_JSP = "index.jsp";
 	public static final String HOME = "home.do"; 
 	
+	public static final String HOME_JSP = "WEB-INF/jsp/adminHome.jsp";
 	public static final String USER_NAME_SESSION_PARAM = "username";
 	public static final String LOGIN_FAIL_REDIRECT = "loginfail.do";
 }
