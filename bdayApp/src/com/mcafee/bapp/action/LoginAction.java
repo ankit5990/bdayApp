@@ -22,8 +22,7 @@ public class LoginAction implements Controller{
 			return new ModelAndView(ActionConstants.REDIRECT+ActionConstants.HOME);
 		}
 		else{
-			String loginFail = "true";
-			request.setAttribute(CommonViewConstants.LOGIN_FAIL, loginFail);
+			ActionUtilities.markLoginFailed(request);
 			return new ModelAndView(ActionConstants.FORWARD+ActionConstants.INDEX_JSP);
 		}
 	}
