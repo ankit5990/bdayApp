@@ -5,7 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <style type="text/css">
-	<%@include file="/bootstrap/css/bootstrap.min.css"%>
+	<%@include file="/bootstrap/css/bootstrap.css"%>
+</style>
+<style type="text/css">
+	<%@include file="/bootstrap/css/bootstrap-responsive.css"%>
 </style>
 <style type="text/css">
 	<%@include file="/css/custom.css"%>
@@ -24,7 +27,7 @@
 					<span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu">
-					<li><a href="#">Settings</li>
+					<li><a href="#">Settings</a></li>
                 	<li><a href="logout.do">Logout</a></li>                  
                 </ul>
 			</div>
