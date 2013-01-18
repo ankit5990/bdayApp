@@ -1,15 +1,23 @@
 <%@include file="/WEB-INF/jsp/commonHeader.jsp" %>
 <div class="container">
 <div class="row">
-	<h2>Login</h2>
+	<div class="span1"><h2>Login</h2></div>
 </div>
  
 <div class="row">
 	<div class="span4">
 		<form id="loginform" action="login.do" method="post">
-			<div class="row">username: <input id="username" name="username" type="text"/></div>
-			<div class="row">password: <input id="password" name="password" type="password"/></div>
-			<div class="row"><input class="btn" type="submit" value="login"></div>
+			<div class="row">
+				<div class="span1">username: </div>
+				<div class="span3"><input id="username" name="username" type="text"/></div>
+			</div>
+			<div class="row">
+				<div class="span1">password: </div>
+				<div class="span3"><input id="password" name="password" type="password"/></div>
+			</div>
+			<div class="row">
+				<div class="span1"><input class="btn" type="submit" value="login"></div>
+			</div>
 		</form>
 	</div>
 </div>
