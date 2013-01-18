@@ -18,4 +18,6 @@
 	
 	<bean name="/enterRecord.do" class="com.mcafee.bapp.action.homeActions.EnterRecordPage">
 	</bean>
+	
+	<bean name="/contactManage.do" class="com.mcafee.bapp.action.groupManagment.GroupManagmentDispatcher"></bean>
 </beans>

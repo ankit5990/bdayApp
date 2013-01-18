@@ -14,4 +14,5 @@ public class ActionConstants {
 	
 	public static final String USER_NAME_SESSION_PARAM = "username";
 	public static final String LOGIN_FAIL_REDIRECT = "loginfail.do";
+	public static final String GROUP_MANAGE_JSP = "WEB-INF/jsp/groupManage.jsp";
 }
