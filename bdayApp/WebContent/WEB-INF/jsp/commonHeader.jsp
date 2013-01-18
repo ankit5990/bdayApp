@@ -11,11 +11,32 @@
 <title>birthday notifier 1.0 alpha</title>
 </head>
 <body>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">
-			<span class="brand">Birthday Notifier</span>
+			<span class="brand span2">Birthday Notifier</span>
+			<div id="headerMenu" class="btn-group span1 offset6">
+				<button class="btn dropdown-toggle" data-toggle="dropdown">Menu
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+                  <li><a href="#">Logout</a></li>                  
+                </ul>
+			</div>
 		</div>
 	</div>
 </div>
 <br/><br/>
+<script type="text/javascript">
+
+$('#headerMenu').click( function(){
+	if(this.classList.contains("open")){
+		this.classList.remove("open");
+	}
+	else{
+		this.classList.add("open");
+	}
+});
+
+</script>

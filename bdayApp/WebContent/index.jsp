@@ -24,12 +24,12 @@
 <div id="errormsg" class="span3 alert" style="display: none;"></div>
 </div>
 <script type="text/javascript">
-	$(document).ready(function() {		
+	$(document).ready(function() {
+		$("#headerMenu").hide();
 		if("${loginFail}" == "true"){
 			$("#errormsg").show();
 			$("#errormsg").html("please login");
-		}
-		
+		}		
 	});
 	
 	$('#loginform').submit( function(){
