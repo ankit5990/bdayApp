@@ -15,7 +15,7 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">
-			<span class="brand span2">Birthday Notifier</span>
+			<a href="home.do" class="brand span2">Birthday Notifier</a>
 			<div id="headerMenu" class="btn-group span1 offset6">
 				<button class="btn dropdown-toggle" data-toggle="dropdown">Menu
 					<span class="caret"></span>
