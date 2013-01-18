@@ -10,6 +10,8 @@ public class ActionConstants {
 	public static final String HOME = "home.do"; 
 	
 	public static final String HOME_JSP = "WEB-INF/jsp/adminHome.jsp";
+	public static final String ENTER_DETAILS_JSP = "WEB-INF/jsp/enterDetails.jsp";
+	
 	public static final String USER_NAME_SESSION_PARAM = "username";
 	public static final String LOGIN_FAIL_REDIRECT = "loginfail.do";
 }

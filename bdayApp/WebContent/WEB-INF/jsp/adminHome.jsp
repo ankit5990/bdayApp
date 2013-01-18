@@ -9,7 +9,7 @@
 			
 		<h2>Administration</h2>
 		Enter new birthday record
-		<form method="post" action="sumit.do">
+		<form method="get" action="enterRecord.do">
 			<table>
 				<tr>
 					<td>name : </td><td><input type="text"></td>

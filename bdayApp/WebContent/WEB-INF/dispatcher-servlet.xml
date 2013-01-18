@@ -16,4 +16,6 @@
 	<bean name="/logout.do" class="com.mcafee.bapp.action.LogoutAction">
 	</bean>
 	
+	<bean name="/enterRecord.do" class="com.mcafee.bapp.action.homeActions.EnterRecordPage">
+	</bean>
 </beans>
