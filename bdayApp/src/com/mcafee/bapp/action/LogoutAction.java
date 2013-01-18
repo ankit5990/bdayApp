@@ -15,7 +15,9 @@ public class LogoutAction implements Controller{
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession(false);
-		session.invalidate();
+		if(session!=null){
+			session.invalidate();
+		}
 		return new ModelAndView(ActionConstants.REDIRECT+ActionConstants.INDEX_JSP);
 	}
 
