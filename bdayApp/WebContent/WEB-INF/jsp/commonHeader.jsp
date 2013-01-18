@@ -7,6 +7,9 @@
 <style type="text/css">
 	<%@include file="/bootstrap/css/bootstrap.min.css"%>
 </style>
+<style type="text/css">
+	<%@include file="/css/custom.css"%>
+</style>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <title>birthday notifier 1.0 alpha</title>
 </head>
@@ -27,7 +30,7 @@
 		</div>
 	</div>
 </div>
-<br/><br/>
+<br/><br/><br/>
 <script type="text/javascript">
 
 $('#headerMenu').click( function(){

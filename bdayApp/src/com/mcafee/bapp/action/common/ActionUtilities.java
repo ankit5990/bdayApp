@@ -21,10 +21,7 @@ public class ActionUtilities {
 	}
 
 	public static boolean isValidLoginPresent(HttpServletRequest request) {
-		HttpSession session = request.getSession(false);
-		if(session == null){
-			return false;
-		}
+		HttpSession session = request.getSession();		
 		String user = (String) session.getAttribute(ActionConstants.USER_NAME_SESSION_PARAM);		
 		return isValidUser(user);
 	}
