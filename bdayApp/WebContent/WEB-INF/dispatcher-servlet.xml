@@ -7,6 +7,9 @@
 	<bean name="/login.do" class="com.mcafee.bapp.action.LoginAction">
 	</bean>
 	
+	<bean name="/loginfail.do" class="com.mcafee.bapp.action.LoginFailForward">
+	</bean>
+	
 	<!-- <bean name="/home.do" class="">
 	</bean> -->
 	
