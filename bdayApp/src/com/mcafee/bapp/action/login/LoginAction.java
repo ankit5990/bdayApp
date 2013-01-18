@@ -6,6 +6,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
+import com.mcafee.bapp.action.common.CommonActionConstants;
+import com.mcafee.bapp.common.CommonViewConstants;
+
 public class LoginAction implements Controller{
 
 	@Override
@@ -16,7 +19,11 @@ public class LoginAction implements Controller{
 		if("admin".equals(username) && "solidcore".equals(password)){
 			return new ModelAndView("redirect:done.html");
 		}
-		return new ModelAndView("redirect:notdone.html");
+		else{
+			String loginFail = "true";
+			request.setAttribute(CommonViewConstants.LOGIN_FAIL, loginFail);
+			return new ModelAndView(CommonActionConstants.FORWARD+CommonActionConstants.INDEX_JSP);
+		}
 	}
 
 }

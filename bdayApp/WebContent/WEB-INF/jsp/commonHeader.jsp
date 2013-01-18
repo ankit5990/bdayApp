@@ -7,6 +7,7 @@
 <style type="text/css">
 	<%@include file="/bootstrap/css/bootstrap.min.css"%>
 </style>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <title>birthday notifier 1.0 alpha</title>
 </head>
 <body>
