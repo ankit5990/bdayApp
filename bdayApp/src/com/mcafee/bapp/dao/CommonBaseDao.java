@@ -16,9 +16,8 @@ public class CommonBaseDao {
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
-	public void insert(SampleVo vo){
-		sessionFactory.openSession();
-		Session session = sessionFactory.getCurrentSession();
+	public void insert(SampleVo vo){		
+		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
 		try{
 			session.saveOrUpdate(vo);

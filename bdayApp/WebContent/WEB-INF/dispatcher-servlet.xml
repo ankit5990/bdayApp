@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 	
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	<bean id="com.bapp.dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 		<property name="url" value="jdbc:mysql://127.0.0.1:3306/bday_app"></property>
 		<property name="username" value="root"></property>
@@ -12,20 +12,23 @@
 	</bean>
 	
 	
-	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<property name="dataSource" ref="dataSource"/>
+	<bean id="com.bapp.sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="com.bapp.dataSource"/>
 		<property name="mappingResources">
 			<list>
 				<value>bdayApp.hbm.xml</value>
 			</list>
-		</property>
+		</property>		
 		<property name="hibernateProperties">
-			<value>hibernate.dialect=org.hibernate.dialect.SQLServerDialect</value>
+			<props>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>			
 		</property>
 
 	</bean>
 	
 	<bean id="com.bapp.dao.CommonBaseDao" class="com.mcafee.bapp.dao.CommonBaseDao">
+		<property name="sessionFactory" ref="com.bapp.sessionFactory"/>
 	</bean>
 	
 	<bean name="/login.do" class="com.mcafee.bapp.action.LoginAction">
@@ -43,5 +46,10 @@
 	<bean name="/enterRecord.do" class="com.mcafee.bapp.action.homeActions.EnterRecordPage">
 	</bean>
 	
-	<bean name="/contactManage.do" class="com.mcafee.bapp.action.groupManagment.GroupManagmentDispatcher"></bean>
+	<bean name="/contactManage.do" class="com.mcafee.bapp.action.groupManagment.GroupManagmentDispatcher">
+	</bean>
+	
+	<bean name="/saveRecord.do" class="com.mcafee.bapp.action.enterRecord.SaveRecordsAction">
+		<property name="dao" ref="com.bapp.dao.CommonBaseDao"/>
+	</bean>	 
 </beans>

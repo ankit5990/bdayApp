@@ -75,8 +75,7 @@
 	};
 	
 	var contactAddedTableClick =  function(){
-		var id = getGroupId($(this));			
-		alert(id);
+		var id = getGroupId($(this));
 		if(id != -1){				
 			removeValueFromArray(addedGroupsList, id);
 			availableGroupsList.push(id);
@@ -87,8 +86,7 @@
 	};
 	
 	var contactAvailableTableClick = function(){
-		var id = getGroupId($(this));			
-		alert(id);
+		var id = getGroupId($(this));
 		if(id != -1){				
 			removeValueFromArray(availableGroupsList, id);
 			addedGroupsList.push(id);
@@ -122,7 +120,19 @@
 			$.ajax({
 				type: "POST",
 				url: "saveRecord.do",
-				data: {}
+				data:{
+						personname: personnameVal,
+						bdate: bdateVal,
+						email: emailVal
+					}
+			}).done(function(){
+				alert('done!');
+				$(location).attr('href','home.do');
+			}).fail(function(){
+				alert('save failed!');
+				$('#spinner').html(null);
+				$('#saveDetails').attr('disabled',false);
+				$('#saveDetails').removeClass("disabled");
 			});
 		});
 		
