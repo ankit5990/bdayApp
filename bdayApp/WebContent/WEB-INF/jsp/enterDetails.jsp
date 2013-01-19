@@ -13,27 +13,29 @@
 	        <input name="email" id="email" type="email">
 	        <label>Notify to groups</label>
 			<div class="container">
-			<div class="row">
-			</div>
-				<div class="span4">
-		        	<table id="contactAddedTable" class="table table-bordered" style="max-height: 500px">
-						<tr><th>Contact Groups Added</th></tr>
-					</table>
+				<div class="row">
+					<div class="span4">
+			        	<table id="contactAddedTable" class="table table-bordered" style="max-height: 500px">
+							<tr><th>Contact Groups Added</th></tr>
+						</table>
+					</div>
+					<div class="span4 offset1">
+						<table id="contactAvailableTable" class="table table-bordered" style="max-height: 500px">
+							<tr><th>Contact Groups Available</th></tr>
+						</table>
+					</div>
 				</div>
-				<div class="span4 offset1">
-					<table id="contactAvailableTable" class="table table-bordered" style="max-height: 500px">
-						<tr><th>Contact Groups Available</th></tr>
-					</table>
-				</div>
-			</div>
 
-			
-			<div class="span1">
-				<input id="saveDetails" type="button" class="btn btn-success" value="save">
+				<div class="row">
+					<div class="span3">
+						<button id="saveDetails" class="btn btn-success">save</button>
+						<img id="spinner" style="height: 10px; width: 10px"></img>
+					</div>
+					<div class="span1 offset1">
+						<button id="cancelSave" class="btn btn-danger">cancel</button>
+					</div>			
+				</div>
 			</div>
-			<div class="span1 offset3">
-				<input id="cancelSave" type="button" class="btn btn-danger" value="cancel">
-			</div>			
         </div>
     </div>
 </div>
@@ -55,7 +57,9 @@
 		});
 		
 		$("#saveDetails").click(function(){
-			alert('saved');
+			$('#saveDetails').attr('disabled',true);
+			$('#saveDetails').addClass("disabled");
+			$('#spinner').append('<img src="img/ajax-loader.gif"/>')
 		});
 		
 		$("#cancelSave").click(function(){
