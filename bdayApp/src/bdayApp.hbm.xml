@@ -4,14 +4,15 @@
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-<class name="com.sample.vo.SampleVo" table="sampleTable">
+<class name="com.mcafee.bapp.vo.BirthdayRecordVo" table="birthdate_records">
 	<id name="id">
 		<generator class="identity"/>
 	</id>
+	<property name="userId"/>
 	<property name="name"/>	
 	<property name="bday"/>	
 	<property name="email"/>
-	<property name="emails"/>
+	<property name="emailGroups"/>
 	<property name="timestamp" type="timestamp"/>		
 </class>
 

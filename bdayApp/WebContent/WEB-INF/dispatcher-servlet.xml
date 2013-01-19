@@ -24,13 +24,22 @@
 				<prop key="hibernate.hbm2ddl.auto">create</prop>
 			</props>			
 		</property>
-
 	</bean>
 	
-	<bean id="com.bapp.dao.CommonBaseDao" class="com.mcafee.bapp.dao.CommonBaseDao">
+	<bean id="com.bapp.dao.CommonBaseDao" abstract="true">
 		<property name="sessionFactory" ref="com.bapp.sessionFactory"/>
 	</bean>
 	
+	<bean id="com.bapp.dao.RecordDetailsDao" class="com.mcafee.bapp.dao.userDetailsDao.RecordDetailsDaoImpl" parent="com.bapp.dao.CommonBaseDao">
+	</bean>
+
+	<bean id="com.bapp.manager.CommonBaseManager" abstract="true">
+	</bean>
+
+	<bean id="com.bapp.manager.RecordDetailsManager" class="com.mcafee.bapp.manager.recordDetailsManager.RecordDetailsManagerImpl">
+		<property name="recordDetailsDao" ref="com.bapp.dao.RecordDetailsDao"></property>
+	</bean>
+			
 	<bean name="/login.do" class="com.mcafee.bapp.action.LoginAction">
 	</bean>
 	
@@ -50,6 +59,6 @@
 	</bean>
 	
 	<bean name="/saveRecord.do" class="com.mcafee.bapp.action.enterRecord.SaveRecordsAction">
-		<property name="dao" ref="com.bapp.dao.CommonBaseDao"/>
+		<property name="manager" ref="com.bapp.manager.RecordDetailsManager"/>
 	</bean>	 
 </beans>

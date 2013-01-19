@@ -1,6 +1,5 @@
 package com.mcafee.bapp.action.enterRecord;
 
-import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,18 +11,18 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mcafee.bapp.action.CommonAction;
-import com.mcafee.bapp.dao.CommonBaseDao;
-import com.sample.vo.SampleVo;
+import com.mcafee.bapp.manager.recordDetailsManager.RecordDetailsManager;
+import com.mcafee.bapp.vo.BirthdayRecordVo;
 
 public class SaveRecordsAction extends CommonAction{
-	CommonBaseDao dao;
+	RecordDetailsManager manager;
 	
-	public CommonBaseDao getDao() {
-		return dao;
+	public RecordDetailsManager getManager() {
+		return manager;
 	}
 
-	public void setDao(CommonBaseDao dao) {
-		this.dao = dao;
+	public void setManager(RecordDetailsManager manager) {
+		this.manager = manager;
 	}
 
 	@Override
@@ -40,8 +39,13 @@ public class SaveRecordsAction extends CommonAction{
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
-		SampleVo vo = new SampleVo(personName,date,email,groups);
-		dao.insert(vo);
+		BirthdayRecordVo vo = new BirthdayRecordVo();
+		vo.setBday(date);
+		vo.setEmail(email);
+		vo.setEmailGroups(groups); // TODO: set correct implementation 
+		vo.setName(personName);
+		vo.setUserId(1); // TODO: set correct implementation
+		manager.saveRecord(vo);
 		return null;
 	}
 
