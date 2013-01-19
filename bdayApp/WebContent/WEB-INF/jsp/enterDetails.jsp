@@ -41,25 +41,89 @@
 </div>
 
 <script type="text/javascript">
+
+	var addedGroupsList = new Array();
+	var availableGroupsList = new Array();
+
+	var getGroupId = function(tableElement){
+		return tableElement.children(1).val();
+	};
+	
+	var setGroupId = function(tableElement, id){
+		tableElement.children(1).val(id);
+	};
+	
+	var removeValueFromArray = function(array, val){
+		var size = array.length;
+		var index = -1;
+		var found = false;
+		for(var i=0;i<size;i++){
+			if(array[i] === val){
+				found = true;
+				index = i;
+				break;
+			}
+		}
+		if(found){
+			for(var i=index;i<size-1;i++){
+				array[i] = array[i+1];
+			}
+			array.length = size - 1;
+			return true;
+		}
+		return false;
+	};
+	
+	var contactAddedTableClick =  function(){
+		var id = getGroupId($(this));			
+		alert(id);
+		if(id != -1){				
+			removeValueFromArray(addedGroupsList, id);
+			availableGroupsList.push(id);
+			$(this).unbind('click',contactAddedTableClick);
+			$(this).bind('click',contactAvailableTableClick);
+			$('#contactAvailableTable tbody').append($(this).parent(0));
+		}
+	};
+	
+	var contactAvailableTableClick = function(){
+		var id = getGroupId($(this));			
+		alert(id);
+		if(id != -1){				
+			removeValueFromArray(availableGroupsList, id);
+			addedGroupsList.push(id);
+			$(this).unbind('click',contactAvailableTableClick);
+			$(this).bind('click',contactAddedTableClick);
+			$('#contactAddedTable tbody').append($(this).parent(0));
+		}
+	};
+	
 	$(document).ready( function(){
+		
 		var addedGroupTable = $('#contactAddedTable');
-		addedGroupTable.append("<tr><td>No Records</td></tr>");
+		addedGroupTable.append('<tr><td>No Records<input type="hidden" value="-1"/></td></tr>');		
 	
 		var availableGroupTable = $('#contactAvailableTable');
-		availableGroupTable.append("<tr><td>No Records</td></tr>");
+		availableGroupTable.append('<tr><td>No Records<input type="hidden" value="-1"/></td></tr>');
 		
-		$("#contactAddedTable tr td").click( function(){
-			alert($(this).html());	
-		});
+		$("#contactAddedTable tr td").click(contactAddedTableClick);
 		
-		$("#contactAvailableTable tr td").click( function(){
-			alert($(this).html());	
-		});
+		$("#contactAvailableTable tr td").click(contactAvailableTableClick);
 		
 		$("#saveDetails").click(function(){
 			$('#saveDetails').attr('disabled',true);
 			$('#saveDetails').addClass("disabled");
 			$('#spinner').append('<img src="img/ajax-loader.gif"/>')
+			
+			var personnameVal = $('#personname').val();
+			var bdateVal = $('#bdate').val();
+			var emailVal = $('#email').val();
+			
+			$.ajax({
+				type: "POST",
+				url: "saveRecord.do",
+				data: {}
+			});
 		});
 		
 		$("#cancelSave").click(function(){
