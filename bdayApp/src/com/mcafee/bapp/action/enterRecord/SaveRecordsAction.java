@@ -33,7 +33,7 @@ public class SaveRecordsAction extends CommonAction{
 		String bdate = request.getParameter("bdate");
 		String email = request.getParameter("email");
 		Date date;
-		int[] groups = null;
+		int[] groups = {1,2};		
 		try {
 			date = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH).parse(bdate);
 		} catch (ParseException e) {		

@@ -6,12 +6,13 @@
 
 <class name="com.sample.vo.SampleVo" table="sampleTable">
 	<id name="id">
-		<generator class="assigned"/>
+		<generator class="identity"/>
 	</id>
 	<property name="name"/>	
 	<property name="bday"/>	
 	<property name="email"/>
-	<property name="emails"/>		
+	<property name="emails"/>
+	<property name="timestamp" type="timestamp"/>		
 </class>
 
 </hibernate-mapping>

@@ -1,5 +1,7 @@
 package com.mcafee.bapp.dao;
 
+import java.sql.Timestamp;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -20,13 +22,14 @@ public class CommonBaseDao {
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
 		try{
+			vo.setTimestamp(new Timestamp(System.currentTimeMillis()));
 			session.saveOrUpdate(vo);
+			tx.commit();
 		}catch(RuntimeException e){
 			tx.rollback();
 			throw e;
 		}		
 		finally{
-			tx.commit();
 			session.flush();
 			session.close();
 		}
